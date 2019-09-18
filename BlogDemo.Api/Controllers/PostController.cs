@@ -59,7 +59,10 @@ namespace BlogDemo.Api.Controllers
                 PageIndex = postList.PageIndex,
                 PageSize = postList.PageSize,
                 TotalItemsCount = postList.TotalItemsCount,
-                PageCount = postList.PageCount
+                PageCount = postList.PageCount,
+                //属性名不写，默认和值名字相同
+                previousPageLink,
+                nextPageLink
             };
             //将分页的 元数据 从自定义的Headers里面返回去
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(meta, new JsonSerializerSettings {

@@ -18,9 +18,9 @@ namespace BlogDemo.Core.Entities
 
         public int PageCount => TotalItemsCount / PageSize + (TotalItemsCount % PageSize > 0 ? 1 : 0);
 
-        public bool HasPrevious => PageIndex > 0;
+        public bool HasPrevious => PageIndex > 1;
 
-        public bool HasNext => PageIndex < PageCount - 1;
+        public bool HasNext => PageIndex < PageCount;
 
         public PaginatedList(int pageIndex, int pageSize, int totalItemsCount, IEnumerable<T> data)
         {
