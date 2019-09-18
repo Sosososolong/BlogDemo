@@ -1,0 +1,24 @@
+EFCore配置字段的约束
+	1.新建BlogDemo.Infrastructure.Database.EntityConfigurations.PostConfiguration.cs 文件并配置
+	   public class PostConfiguration : IEntityTypeConfiguration<Post>
+		{
+			public void Configure(EntityTypeBuilder<Post> builder)
+			{
+				//已经添加进数据库中的字段Sqlite不支持更新这些字段约束，只有在添加字段的同时设置这些约束，然后再一起添加迁移更新数据库
+				//builder.Property(x => x.Author).IsRequired().HasMaxLength(50);
+				//builder.Property(x => x.Title).IsRequired().HasMaxLength(100);
+				//builder.Property(x => x.Body).IsRequired().HasColumnType("nvarchar(max)");
+				builder.Property(x => x.Remark).HasMaxLength(200); 
+			}
+		}
+
+	2.在BlogDemo.Infrastructure.Database.MyContext.cs中重写DbContext的 OnModelCreating() 方法
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            // 在新建的 PostConfiguration.cs 中配置Post表字段的一些属性，例如长度范围，约束。。 然后添加迁移即可应用到数据库中
+            // 注意sqlite不支持修改字段
+            modelBuilder.ApplyConfiguration(new PostConfiguration());
+        }
+
+	3.Add-Migration -> Update-Database
