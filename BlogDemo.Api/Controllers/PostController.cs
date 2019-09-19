@@ -51,7 +51,7 @@ namespace BlogDemo.Api.Controllers
         }
 
         [HttpGet(Name = "GetPosts")]
-        public async Task<IActionResult> Get(PostParameters postParameters)
+        public async Task<IActionResult> Get(PostParameters postParameters, [FromHeader(Name = "Accept")] string mediaType)
         {
             //验证排序属性
             if (!_propertyMappingContainer.ValidateMappingExistsFor<PostResource, Post>(postParameters.OrderBy))
@@ -67,49 +67,77 @@ namespace BlogDemo.Api.Controllers
             var postList = await _postRepository.GetPostsAsync(postParameters);
             var postResources = _mapper.Map<IEnumerable<Post>, IEnumerable<PostResource>>(postList);
 
-            //塑形
-            var shapedPostResources = postResources.ToDynamicIEnumerable(postParameters.Fields);
+            if (mediaType == "application/vnd.cgzl.hateoas+json")
+            {
+                //塑形
+                var shapedPostResources = postResources.ToDynamicIEnumerable(postParameters.Fields);
 
-            var shapedWithLinks = shapedPostResources.Select(
-                p =>
+                var shapedWithLinks = shapedPostResources.Select(
+                    p =>
+                    {
+                        var dict = p as IDictionary<string, object>;
+                        var postLinks = CreateLinksForPost((int)dict["Id"], postParameters.Fields);
+                        dict.Add("links", postLinks);
+                        return dict;
+                    });
+
+                var links = CreateLinksForPosts(postParameters, postList.HasPrevious, postList.HasNext);
+
+                var result = new
                 {
-                    var dict = p as IDictionary<string, object>;
-                    var postLinks = CreateLinksForPost((int)dict["Id"], postParameters.Fields);
-                    dict.Add("links", postLinks);
-                    return dict;
-                });
+                    value = shapedWithLinks,
+                    links
+                };
 
-            var links = CreateLinksForPosts(postParameters, postList.HasPrevious, postList.HasNext);
 
-            var result = new
+                //生成上一页下一页的链接
+                //var previousPageLink = postList.HasPrevious ?
+                //    CreatePostUri(postParameters, PaginationResourceUriType.PreviousPage) : null;
+                //var nextPageLink = postList.HasNext ?
+                //    CreatePostUri(postParameters, PaginationResourceUriType.NextPage) : null;
+
+                var meta = new
+                {
+                    PageIndex = postList.PageIndex,
+                    PageSize = postList.PageSize,
+                    TotalItemsCount = postList.TotalItemsCount,
+                    PageCount = postList.PageCount,
+                    //属性名不写，默认和值名字相同
+                    //previousPageLink,
+                    //nextPageLink
+                };
+                //将分页的 元数据 从自定义的Headers里面返回去
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(meta, new JsonSerializerSettings
+                {
+                    //格式化对象的过程中，对象属性转换为“驼峰式”，即将 meta对象转换为json字符串的时候，首字母转为小写
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                }));
+                return Ok(result);
+            }
+            else
             {
-                value = shapedWithLinks,
-                links
-            };
+                var previousPageLink = postList.HasPrevious ?
+                    CreatePostUri(postParameters, PaginationResourceUriType.PreviousPage) : null;
+                var nextPageLink = postList.HasNext ?
+                    CreatePostUri(postParameters, PaginationResourceUriType.NextPage) : null;
 
+                var meta = new
+                {
+                    postList.TotalItemsCount,
+                    postList.PageSize,
+                    postList.PageIndex,
+                    postList.PageCount,
+                    previousPageLink,
+                    nextPageLink
+                };
 
-            //生成上一页下一页的链接
-            //var previousPageLink = postList.HasPrevious ?
-            //    CreatePostUri(postParameters, PaginationResourceUriType.PreviousPage) : null;
-            //var nextPageLink = postList.HasNext ?
-            //    CreatePostUri(postParameters, PaginationResourceUriType.NextPage) : null;
+                Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(meta, new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                }));
 
-            var meta = new
-            {
-                PageIndex = postList.PageIndex,
-                PageSize = postList.PageSize,
-                TotalItemsCount = postList.TotalItemsCount,
-                PageCount = postList.PageCount,
-                //属性名不写，默认和值名字相同
-                //previousPageLink,
-                //nextPageLink
-            };
-            //将分页的 元数据 从自定义的Headers里面返回去
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(meta, new JsonSerializerSettings {
-                //格式化对象的过程中，对象属性转换为“驼峰式”，即将 meta对象转换为json字符串的时候，首字母转为小写
-                ContractResolver = new  CamelCasePropertyNamesContractResolver()
-            }));
-            return Ok(result);
+                return Ok(postResources.ToDynamicIEnumerable(postParameters.Fields));
+            }            
         }
         
         [HttpGet("{id}", Name = "GetPost")]
