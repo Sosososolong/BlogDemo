@@ -23,7 +23,7 @@ namespace BlogDemo.Core.Entities
         public virtual int PageSize
         {
             get => _pageSize;
-            set => SetField(ref _maxPageSize, value);
+            set => SetField(ref _pageSize, value);
         }
 
         private string _orderBy;

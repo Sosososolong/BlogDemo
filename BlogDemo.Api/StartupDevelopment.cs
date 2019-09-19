@@ -16,6 +16,8 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
+using System.Linq;
 
 namespace BlogDemo.Api
 {
@@ -30,8 +32,22 @@ namespace BlogDemo.Api
                 {
                     options.ReturnHttpNotAcceptable = true; //启用406状态码, 当使用Postman发送一个请求,并且将请求头里面的Accept值修改为 application/xml, 之请求xml格式的资源, 此时我们的api如果不支持xml格式就会返回406状态码, 下行代码启用xml
 
-                    options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()); //启用xml格式资源
+                    //options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()); //启用xml格式资源
+
+                    //供应商自定义媒体类型
+                    var outputFormatter = options.OutputFormatters.OfType<JsonOutputFormatter>().FirstOrDefault();
+                    if (outputFormatter != null)
+                    {
+                        outputFormatter.SupportedMediaTypes.Add("application/vnd.cgzl.hateoas+json");
+                    }
+                })
+                .AddJsonOptions(
+                options =>
+                {
+                    //使的接口返回的json数据的 键 首字母小写的驼峰式结构
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
+
             services.AddDbContext<MyContext>(options =>
             {
                 options.UseSqlite("Data Source=BlogDemo.db");
@@ -68,6 +84,9 @@ namespace BlogDemo.Api
             var propertyMappingContainer = new PropertyMappingContainer();
             propertyMappingContainer.Register<PostPropertyMapping>();
             services.AddSingleton<IPropertyMappingContainer>(propertyMappingContainer);
+
+            //注册ITypeHelperService，某个类型的属性中是否包含了传过来的所有字段
+            services.AddTransient<ITypeHelperService, TypeHelperService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
