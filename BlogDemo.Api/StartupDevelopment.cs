@@ -6,6 +6,7 @@ using BlogDemo.Infrastructure.Repository;
 using BlogDemo.Infrastructure.Resources;
 using BlogDemo.Infrastructure.Services;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -35,18 +36,26 @@ namespace BlogDemo.Api
                     //options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()); //启用xml格式资源
 
                     //供应商自定义媒体类型
+                    var inputFormatter = options.InputFormatters.OfType<JsonInputFormatter>().FirstOrDefault();
+                    if (inputFormatter != null)
+                    {
+                        inputFormatter.SupportedMediaTypes.Add("application/vnd.cgzl.post.create+json");
+                        inputFormatter.SupportedMediaTypes.Add("application/vnd.cgzl.post.update+json");
+                    }
+
                     var outputFormatter = options.OutputFormatters.OfType<JsonOutputFormatter>().FirstOrDefault();
                     if (outputFormatter != null)
                     {
                         outputFormatter.SupportedMediaTypes.Add("application/vnd.cgzl.hateoas+json");
-                    }
+                    }                    
                 })
                 .AddJsonOptions(
                 options =>
                 {
                     //使的接口返回的json数据的 键 首字母小写的驼峰式结构
                     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                });
+                })//FluentValidation
+                .AddFluentValidation();
 
             services.AddDbContext<MyContext>(options =>
             {
@@ -68,7 +77,9 @@ namespace BlogDemo.Api
             //将创建的 MappingProfile 放到依赖注入容器中            
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddTransient<IValidator<PostResource>, PostResourceValidator>();
+            // FluentValidation 第三方验证
+            services.AddTransient<IValidator<PostAddResource>, PostAddOrUpdateResourceValidator<PostAddResource>>();
+            services.AddTransient<IValidator<PostUpdateResource>, PostAddOrUpdateResourceValidator<PostUpdateResource>>();
 
             //使用IUrlHelper，生成前一夜后一页uri
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();

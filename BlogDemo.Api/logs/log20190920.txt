@@ -1,0 +1,1268 @@
+2019-09-20 10:21:34.190 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:21:34.499 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:21:34.519 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 10:21:34.653 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 10:21:37.044 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 10:21:37.117 +08:00 [INF] Request finished in 80.9972ms 307 
+2019-09-20 10:21:37.199 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 10:21:37.402 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 10:21:37.799 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 10:22:45.225 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:22:45.264 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:22:45.270 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 10:22:45.289 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 10:22:45.309 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:22:45.323 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 10:22:46.404 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 68992.8466ms
+2019-09-20 10:22:46.407 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:22:46.457 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:22:46.478 +08:00 [INF] Request finished in 69278.4859ms 500 application/json
+2019-09-20 10:27:16.349 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/createpost text/plain 90
+2019-09-20 10:27:16.351 +08:00 [INF] Request finished in 2.4194ms 404 
+2019-09-20 10:27:16.364 +08:00 [INF] Connection id "0HLPTE51BANG5", Request id "0HLPTE51BANG5:00000001": the application completed without reading the entire request body.
+2019-09-20 10:29:06.153 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 90
+2019-09-20 10:29:06.160 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 10:29:06.259 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 10:29:06.320 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 158.0817ms
+2019-09-20 10:29:06.322 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PostAddResource -> Post
+BlogDemo.Infrastructure.Resources.PostAddResource -> BlogDemo.Core.Entities.Post
+   at lambda_method(Closure , PostAddResource , Post , ResolutionContext )
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 51
+   at BlogDemo.Api.Controllers.PostController.Post(PostAddResource postAddResource) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 177
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:29:06.357 +08:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PostAddResource -> Post
+BlogDemo.Infrastructure.Resources.PostAddResource -> BlogDemo.Core.Entities.Post
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PostAddResource -> Post
+BlogDemo.Infrastructure.Resources.PostAddResource -> BlogDemo.Core.Entities.Post
+   at lambda_method(Closure , PostAddResource , Post , ResolutionContext )
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 51
+   at BlogDemo.Api.Controllers.PostController.Post(PostAddResource postAddResource) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 177
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:29:06.373 +08:00 [INF] Request finished in 218.4881ms 500 application/json
+2019-09-20 10:29:23.144 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 90
+2019-09-20 10:29:23.146 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 10:29:23.176 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 10:29:35.344 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 12195.558700000001ms
+2019-09-20 10:29:35.349 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PostAddResource -> Post
+BlogDemo.Infrastructure.Resources.PostAddResource -> BlogDemo.Core.Entities.Post
+   at lambda_method(Closure , PostAddResource , Post , ResolutionContext )
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 51
+   at BlogDemo.Api.Controllers.PostController.Post(PostAddResource postAddResource) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 177
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:29:35.388 +08:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PostAddResource -> Post
+BlogDemo.Infrastructure.Resources.PostAddResource -> BlogDemo.Core.Entities.Post
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+PostAddResource -> Post
+BlogDemo.Infrastructure.Resources.PostAddResource -> BlogDemo.Core.Entities.Post
+   at lambda_method(Closure , PostAddResource , Post , ResolutionContext )
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 51
+   at BlogDemo.Api.Controllers.PostController.Post(PostAddResource postAddResource) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 177
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:29:35.405 +08:00 [INF] Request finished in 12261.0386ms 500 application/json
+2019-09-20 10:35:09.984 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:35:10.253 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:35:10.273 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 10:35:10.382 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 10:35:12.130 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 10:35:12.180 +08:00 [INF] Request finished in 50.3762ms 307 
+2019-09-20 10:35:12.273 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 10:35:12.479 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 10:35:12.941 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 10:35:16.418 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:35:16.461 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:35:16.468 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 10:35:16.488 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 10:35:16.506 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:35:16.516 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 10:35:17.602 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 5118.5986ms
+2019-09-20 10:35:17.605 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:35:17.651 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:35:17.677 +08:00 [INF] Request finished in 5404.1074ms 500 application/json
+2019-09-20 10:35:23.317 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 90
+2019-09-20 10:35:23.323 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 10:35:23.439 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 10:35:46.316 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:35:46.404 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:35:46.445 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[@p0='?' (Size = 5), @p1='?' (Size = 18), @p2='?', @p3='?', @p4='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Posts" ("Author", "Body", "LastModified", "Remark", "Title")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT "Id"
+FROM "Posts"
+WHERE changes() = 1 AND "Id" = last_insert_rowid();
+2019-09-20 10:35:46.578 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.CreatedAtRouteResult in 23135.029300000002ms.
+2019-09-20 10:35:46.590 +08:00 [INF] Executing ObjectResult, writing value of type 'BlogDemo.Infrastructure.Resources.PostResource'.
+2019-09-20 10:35:46.606 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 23280.7284ms
+2019-09-20 10:35:46.609 +08:00 [INF] Request finished in 23292.6205ms 201 application/json; charset=utf-8
+2019-09-20 10:38:40.396 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:38:40.664 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:38:40.682 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 10:38:40.778 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 10:38:43.002 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 10:38:43.042 +08:00 [INF] Request finished in 39.4928ms 307 
+2019-09-20 10:38:43.118 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 10:38:43.330 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 10:38:43.743 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 10:38:51.850 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:38:51.892 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:38:51.899 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 10:38:51.917 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 10:38:51.939 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:38:51.950 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 10:38:53.651 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 10316.0282ms
+2019-09-20 10:38:53.655 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:38:53.707 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 10:38:53.727 +08:00 [INF] Request finished in 10609.1898ms 500 application/json
+2019-09-20 10:39:07.431 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 91
+2019-09-20 10:39:07.437 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 10:39:07.543 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 10:39:11.004 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 10:39:11.079 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 10:39:11.112 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 5), @p1='?' (Size = 18), @p2='?', @p3='?', @p4='?' (Size = 10)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Posts" ("Author", "Body", "LastModified", "Remark", "Title")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT "Id"
+FROM "Posts"
+WHERE changes() = 1 AND "Id" = last_insert_rowid();
+2019-09-20 10:39:11.231 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.CreatedAtRouteResult in 3683.2117000000003ms.
+2019-09-20 10:39:11.243 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Dynamic.ExpandoObject'.
+2019-09-20 10:39:11.262 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 3822.7873ms
+2019-09-20 10:39:11.265 +08:00 [INF] Request finished in 3834.225ms 201 application/json; charset=utf-8
+2019-09-20 11:27:05.369 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 11:27:05.803 +08:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 11:27:05.882 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 11:27:06.084 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 11:27:09.071 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 11:27:09.142 +08:00 [INF] Request finished in 71.9105ms 307 
+2019-09-20 11:27:09.269 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 11:27:09.772 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 11:27:10.558 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 11:27:13.302 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 11:27:13.361 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 11:27:13.394 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 11:27:13.493 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 11:27:13.693 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 11:27:13.729 +08:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 11:27:15.025 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 5246.8583ms
+2019-09-20 11:27:15.029 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 11:27:15.119 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 121
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 11:27:15.162 +08:00 [INF] Request finished in 5892.5539ms 500 application/json
+2019-09-20 11:27:29.607 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 67
+2019-09-20 11:27:29.621 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 11:27:29.809 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Invalid"
+2019-09-20 11:27:29.817 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.UnprocessableEntityObjectResult in 2.9242000000000004ms.
+2019-09-20 11:27:29.826 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2019-09-20 11:27:29.839 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 215.6927ms
+2019-09-20 11:27:29.841 +08:00 [INF] Request finished in 234.0302ms 422 application/json; charset=utf-8
+2019-09-20 11:27:37.629 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 91
+2019-09-20 11:27:37.632 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 11:27:37.662 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Invalid"
+2019-09-20 11:27:37.664 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.UnprocessableEntityObjectResult in 0.0568ms.
+2019-09-20 11:27:37.666 +08:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2019-09-20 11:27:37.668 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 28.880000000000003ms
+2019-09-20 11:27:37.670 +08:00 [INF] Request finished in 41.2299ms 422 application/json; charset=utf-8
+2019-09-20 12:10:50.491 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 12:10:50.779 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 12:10:50.802 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 12:10:50.907 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 12:10:53.359 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 12:10:53.395 +08:00 [INF] Request finished in 37.6658ms 307 
+2019-09-20 12:10:53.475 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 12:10:53.723 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 12:10:54.159 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 12:11:00.535 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 12:11:00.576 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 12:11:00.585 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 12:11:00.605 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 12:11:00.629 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 12:11:00.642 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 12:11:02.833 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 9098.9175ms
+2019-09-20 12:11:02.838 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 12:11:02.890 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 12:11:02.913 +08:00 [INF] Request finished in 9437.8044ms 500 application/json
+2019-09-20 12:11:12.102 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 91
+2019-09-20 12:11:12.104 +08:00 [INF] Request finished in 2.2773ms 404 
+2019-09-20 12:11:12.129 +08:00 [INF] Connection id "0HLPTG237QAA8", Request id "0HLPTG237QAA8:00000001": the application completed without reading the entire request body.
+2019-09-20 13:05:06.063 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 91
+2019-09-20 13:05:06.070 +08:00 [INF] Request finished in 7.3115ms 404 
+2019-09-20 13:05:06.093 +08:00 [INF] Connection id "0HLPTG237QAA8", Request id "0HLPTG237QAA8:00000002": the application completed without reading the entire request body.
+2019-09-20 13:05:43.865 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/json 91
+2019-09-20 13:05:43.866 +08:00 [INF] Request finished in 1.0748ms 404 
+2019-09-20 13:05:43.867 +08:00 [INF] Connection id "0HLPTG237QAA8", Request id "0HLPTG237QAA8:00000003": the application completed without reading the entire request body.
+2019-09-20 13:05:56.233 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/createpost application/json 91
+2019-09-20 13:05:56.234 +08:00 [INF] Request finished in 1.5833ms 404 
+2019-09-20 13:05:56.236 +08:00 [INF] Connection id "0HLPTG237QAA8", Request id "0HLPTG237QAA8:00000004": the application completed without reading the entire request body.
+2019-09-20 13:06:08.149 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/json 91
+2019-09-20 13:06:08.177 +08:00 [INF] Request finished in 28.2167ms 404 
+2019-09-20 13:06:08.206 +08:00 [INF] Connection id "0HLPTG237QAA8", Request id "0HLPTG237QAA8:00000005": the application completed without reading the entire request body.
+2019-09-20 13:06:22.393 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=5&orderBy=id%20desc  
+2019-09-20 13:06:22.394 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 13:06:22.436 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 13:06:31.513 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 13:06:31.755 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:06:31.759 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 13:06:31.771 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:06:31.775 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?', @__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+ORDER BY "p"."Id" DESC
+LIMIT @__p_1 OFFSET @__p_0
+2019-09-20 13:06:38.991 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 16549.552900000002ms.
+2019-09-20 13:06:39.004 +08:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.IEnumerable`1[[System.Collections.Generic.IDictionary`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[BlogDemo.Infrastructure.Resources.LinkResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-09-20 13:06:39.033 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 16637.1653ms
+2019-09-20 13:06:39.037 +08:00 [INF] Request finished in 16644.427ms 200 application/vnd.cgzl.hateoas+json; charset=utf-8
+2019-09-20 13:10:42.628 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/vnd.cgzl.post.create+json 91
+2019-09-20 13:10:42.631 +08:00 [INF] Request finished in 5.7571ms 404 
+2019-09-20 13:10:42.633 +08:00 [INF] Connection id "0HLPTG237QAA8", Request id "0HLPTG237QAA8:00000007": the application completed without reading the entire request body.
+2019-09-20 13:12:13.439 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 13:12:13.709 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:12:13.733 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 13:12:13.831 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 13:12:15.952 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 13:12:15.977 +08:00 [INF] Request finished in 28.0673ms 307 
+2019-09-20 13:12:16.071 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 13:12:16.294 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 13:12:16.755 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 13:12:19.426 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 13:12:19.463 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:12:19.473 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 13:12:19.490 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 13:12:19.511 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:12:19.525 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 13:12:19.668 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 3369.1366000000003ms
+2019-09-20 13:12:19.671 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 13:12:19.729 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 13:12:19.752 +08:00 [INF] Request finished in 3680.2737ms 500 application/json
+2019-09-20 13:12:24.098 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/vnd.cgzl.post.create+json 91
+2019-09-20 13:12:24.101 +08:00 [INF] Request finished in 2.6814ms 404 
+2019-09-20 13:12:24.123 +08:00 [INF] Connection id "0HLPTH4COHCCC", Request id "0HLPTH4COHCCC:00000001": the application completed without reading the entire request body.
+2019-09-20 13:20:12.289 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/vnd.cgzl.hateoas+json 91
+2019-09-20 13:20:12.318 +08:00 [INF] Request finished in 29.5702ms 404 
+2019-09-20 13:20:12.320 +08:00 [INF] Connection id "0HLPTH4COHCCC", Request id "0HLPTH4COHCCC:00000002": the application completed without reading the entire request body.
+2019-09-20 13:20:56.596 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/vnd.cgzl.post.create+json 91
+2019-09-20 13:20:56.644 +08:00 [INF] Request finished in 47.4207ms 404 
+2019-09-20 13:20:56.644 +08:00 [INF] Connection id "0HLPTH4COHCCC", Request id "0HLPTH4COHCCC:00000003": the application completed without reading the entire request body.
+2019-09-20 13:27:20.484 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/json 91
+2019-09-20 13:27:20.542 +08:00 [INF] Request finished in 57.864ms 404 
+2019-09-20 13:27:20.550 +08:00 [INF] Connection id "0HLPTH4COHCCC", Request id "0HLPTH4COHCCC:00000004": the application completed without reading the entire request body.
+2019-09-20 13:27:26.649 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 text/plain 91
+2019-09-20 13:27:26.652 +08:00 [INF] Request finished in 3.0412ms 404 
+2019-09-20 13:27:26.661 +08:00 [INF] Connection id "0HLPTH4COHCCC", Request id "0HLPTH4COHCCC:00000005": the application completed without reading the entire request body.
+2019-09-20 13:28:35.696 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/vnd.cgzl.post.create+json 91
+2019-09-20 13:28:35.699 +08:00 [INF] Request finished in 2.8835ms 404 
+2019-09-20 13:28:35.701 +08:00 [INF] Connection id "0HLPTH4COHCCC", Request id "0HLPTH4COHCCC:00000006": the application completed without reading the entire request body.
+2019-09-20 13:29:36.881 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/vnd.cgzl.post.create+json 91
+2019-09-20 13:29:36.918 +08:00 [INF] Request finished in 37.6159ms 404 
+2019-09-20 13:29:36.920 +08:00 [INF] Connection id "0HLPTH4COHCCC", Request id "0HLPTH4COHCCC:00000007": the application completed without reading the entire request body.
+2019-09-20 13:35:05.004 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 13:35:05.279 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:35:05.301 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 13:35:05.397 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 13:35:07.525 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 13:35:07.563 +08:00 [INF] Request finished in 38.6159ms 307 
+2019-09-20 13:35:07.658 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 13:35:07.978 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 13:35:08.489 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 13:35:12.398 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 13:35:12.461 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:35:12.471 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 13:35:12.497 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 13:35:12.521 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:35:12.535 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 13:35:12.680 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 4687.0389000000005ms
+2019-09-20 13:35:12.683 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 13:35:12.748 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 13:35:12.781 +08:00 [INF] Request finished in 5123.0291ms 500 application/json
+2019-09-20 13:35:17.599 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts/2 application/vnd.cgzl.post.create+json 91
+2019-09-20 13:35:17.601 +08:00 [INF] Request finished in 2.324ms 404 
+2019-09-20 13:35:17.626 +08:00 [INF] Connection id "0HLPTHH5GR3C7", Request id "0HLPTHH5GR3C7:00000001": the application completed without reading the entire request body.
+2019-09-20 13:36:09.483 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/vnd.cgzl.post.create+json 91
+2019-09-20 13:36:09.560 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 13:36:09.757 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Invalid"
+2019-09-20 13:36:12.504 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api), returned result BlogDemo.Api.Helpers.MyUnprocessableEntityObjectResult in 2742.6510000000003ms.
+2019-09-20 13:36:12.514 +08:00 [INF] Executing ObjectResult, writing value of type 'BlogDemo.Api.Helpers.ResourceValidationResult'.
+2019-09-20 13:36:12.537 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 2973.0774ms
+2019-09-20 13:36:12.540 +08:00 [INF] Request finished in 3056.9594ms 422 application/vnd.cgzl.hateoas+json; charset=utf-8
+2019-09-20 13:36:54.069 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 13:36:54.341 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:36:54.360 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 13:36:54.465 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 13:36:56.780 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 13:36:56.812 +08:00 [INF] Request finished in 35.1925ms 307 
+2019-09-20 13:36:56.892 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 13:36:57.134 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 13:36:57.610 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 13:37:00.312 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 13:37:00.356 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:37:00.363 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 13:37:00.380 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 13:37:00.404 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 13:37:00.418 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 13:37:00.555 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 3415.7305ms
+2019-09-20 13:37:00.559 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 13:37:00.623 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 13:37:00.657 +08:00 [INF] Request finished in 3765.0896ms 500 application/json
+2019-09-20 13:37:05.443 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/vnd.cgzl.post.create+json 91
+2019-09-20 13:37:05.450 +08:00 [INF] Route matched with {action = "Post", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Post(BlogDemo.Infrastructure.Resources.PostAddResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 13:37:05.647 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) - Validation state: "Invalid"
+2019-09-20 13:37:09.284 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api), returned result BlogDemo.Api.Helpers.MyUnprocessableEntityObjectResult in 3632.4839ms.
+2019-09-20 13:37:09.297 +08:00 [INF] Executing ObjectResult, writing value of type 'BlogDemo.Api.Helpers.ResourceValidationResult'.
+2019-09-20 13:37:09.315 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Post (BlogDemo.Api) in 3860.8128ms
+2019-09-20 13:37:09.317 +08:00 [INF] Request finished in 3873.7839ms 422 application/vnd.cgzl.hateoas+json; charset=utf-8
+2019-09-20 14:09:00.688 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 14:09:00.994 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:09:01.019 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 14:09:01.135 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 14:09:03.787 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 14:09:03.818 +08:00 [INF] Request finished in 32.4545ms 307 
+2019-09-20 14:09:03.978 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 14:09:04.296 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 14:09:04.708 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 14:09:07.478 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 14:09:07.517 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:09:07.526 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 14:09:07.545 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 14:09:07.569 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:09:07.582 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 14:09:07.724 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 3417.9862000000003ms
+2019-09-20 14:09:07.727 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:09:07.777 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 122
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:09:07.798 +08:00 [INF] Request finished in 3820.851ms 500 application/json
+2019-09-20 14:10:19.780 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 317
+2019-09-20 14:10:19.782 +08:00 [INF] Request finished in 2.5436ms 404 
+2019-09-20 14:10:19.790 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000001": the application completed without reading the entire request body.
+2019-09-20 14:11:03.441 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 317
+2019-09-20 14:11:03.442 +08:00 [INF] Request finished in 1.3652ms 404 
+2019-09-20 14:11:03.444 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000002": the application completed without reading the entire request body.
+2019-09-20 14:12:50.017 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 318
+2019-09-20 14:12:50.030 +08:00 [INF] Request finished in 15.7804ms 404 
+2019-09-20 14:12:50.031 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000003": the application completed without reading the entire request body.
+2019-09-20 14:13:53.296 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 304
+2019-09-20 14:13:53.297 +08:00 [INF] Request finished in 1.2795ms 404 
+2019-09-20 14:13:53.311 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000004": the application completed without reading the entire request body.
+2019-09-20 14:14:02.637 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 319
+2019-09-20 14:14:02.639 +08:00 [INF] Request finished in 1.9822ms 404 
+2019-09-20 14:14:02.640 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000005": the application completed without reading the entire request body.
+2019-09-20 14:14:56.520 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 319
+2019-09-20 14:14:56.552 +08:00 [INF] Request finished in 42.3974ms 404 
+2019-09-20 14:14:56.555 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000006": the application completed without reading the entire request body.
+2019-09-20 14:15:57.925 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 319
+2019-09-20 14:15:57.937 +08:00 [INF] Request finished in 12.5108ms 404 
+2019-09-20 14:15:57.940 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000007": the application completed without reading the entire request body.
+2019-09-20 14:16:42.544 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 319
+2019-09-20 14:16:42.546 +08:00 [INF] Request finished in 1.9969ms 404 
+2019-09-20 14:16:42.565 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000008": the application completed without reading the entire request body.
+2019-09-20 14:17:17.723 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 302
+2019-09-20 14:17:17.725 +08:00 [INF] Request finished in 13.4323ms 404 
+2019-09-20 14:17:17.728 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:00000009": the application completed without reading the entire request body.
+2019-09-20 14:21:09.370 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts application/vnd.cgzl.post.update+json 302
+2019-09-20 14:21:09.371 +08:00 [INF] Request finished in 1.3516ms 404 
+2019-09-20 14:21:09.382 +08:00 [INF] Connection id "0HLPTI44AU042", Request id "0HLPTI44AU042:0000000A": the application completed without reading the entire request body.
+2019-09-20 14:47:59.939 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 14:48:00.209 +08:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:48:00.232 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 14:48:00.324 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 14:48:02.869 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 14:48:02.904 +08:00 [INF] Request finished in 36.5466ms 307 
+2019-09-20 14:48:03.002 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 14:48:03.213 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 14:48:03.654 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 14:48:06.845 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 14:48:06.891 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:48:06.899 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 14:48:06.922 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 14:48:06.945 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:48:06.959 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 14:48:07.131 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 3909.1395ms
+2019-09-20 14:48:07.134 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 123
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:48:07.189 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 123
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:48:07.212 +08:00 [INF] Request finished in 4209.4389ms 500 application/json
+2019-09-20 14:48:11.913 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts/3 application/json-patch+json 120
+2019-09-20 14:48:11.916 +08:00 [INF] Request finished in 2.4927ms 404 
+2019-09-20 14:48:11.933 +08:00 [INF] Connection id "0HLPTIPTDLC0U", Request id "0HLPTIPTDLC0U:00000001": the application completed without reading the entire request body.
+2019-09-20 14:48:20.911 +08:00 [INF] Request starting HTTP/1.1 PATCH https://localhost:5001/api/posts/3 application/json-patch+json 120
+2019-09-20 14:48:20.939 +08:00 [INF] Route matched with {action = "PartiallyUpdatePost", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PartiallyUpdatePost(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[BlogDemo.Infrastructure.Resources.PostUpdateResource]) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 14:48:21.049 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 14:48:21.055 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 14:48:21.085 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:48:21.090 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 14:48:21.192 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) in 251.27720000000002ms
+2019-09-20 14:48:21.194 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> PostUpdateResource
+BlogDemo.Core.Entities.Post -> BlogDemo.Infrastructure.Resources.PostUpdateResource
+   at lambda_method(Closure , Post , PostUpdateResource , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 35
+   at BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost(Int32 id, JsonPatchDocument`1 patchDoc) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 275
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:48:21.217 +08:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> PostUpdateResource
+BlogDemo.Core.Entities.Post -> BlogDemo.Infrastructure.Resources.PostUpdateResource
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> PostUpdateResource
+BlogDemo.Core.Entities.Post -> BlogDemo.Infrastructure.Resources.PostUpdateResource
+   at lambda_method(Closure , Post , PostUpdateResource , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 35
+   at BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost(Int32 id, JsonPatchDocument`1 patchDoc) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 275
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:48:21.226 +08:00 [INF] Request finished in 315.6508ms 500 application/json
+2019-09-20 14:57:22.296 +08:00 [INF] Request starting HTTP/1.1 PATCH https://localhost:5001/api/posts/3 application/json-patch+json 120
+2019-09-20 14:57:22.325 +08:00 [INF] Route matched with {action = "PartiallyUpdatePost", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PartiallyUpdatePost(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[BlogDemo.Infrastructure.Resources.PostUpdateResource]) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 14:57:22.362 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 14:57:22.365 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 14:57:22.370 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 14:57:22.380 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 14:57:25.316 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) in 2983.0280000000002ms
+2019-09-20 14:57:25.321 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> PostUpdateResource
+BlogDemo.Core.Entities.Post -> BlogDemo.Infrastructure.Resources.PostUpdateResource
+   at lambda_method(Closure , Post , PostUpdateResource , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 35
+   at BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost(Int32 id, JsonPatchDocument`1 patchDoc) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 275
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:57:25.381 +08:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> PostUpdateResource
+BlogDemo.Core.Entities.Post -> BlogDemo.Infrastructure.Resources.PostUpdateResource
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Post -> PostUpdateResource
+BlogDemo.Core.Entities.Post -> BlogDemo.Infrastructure.Resources.PostUpdateResource
+   at lambda_method(Closure , Post , PostUpdateResource , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 35
+   at BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost(Int32 id, JsonPatchDocument`1 patchDoc) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 275
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 14:57:25.399 +08:00 [INF] Request finished in 3102.9844ms 500 application/json
+2019-09-20 15:02:55.646 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:02:55.918 +08:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:02:55.941 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM "Posts" AS "p")
+    THEN 1 ELSE 0
+END
+2019-09-20 15:02:56.046 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-09-20 15:02:58.467 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/posts  
+2019-09-20 15:02:58.515 +08:00 [INF] Request finished in 48.6367ms 307 
+2019-09-20 15:02:58.650 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-09-20 15:02:58.893 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(BlogDemo.Core.Entities.PostParameters, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:02:59.280 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 15:03:02.977 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:03:03.028 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:03:03.038 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Posts" AS "p"
+2019-09-20 15:03:03.059 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_0)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-09-20 15:03:03.084 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:03:03.099 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Author", "p"."Body", "p"."LastModified", "p"."Remark", "p"."Title"
+FROM "Posts" AS "p"
+LIMIT @__p_0 OFFSET @__p_0
+2019-09-20 15:03:03.259 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 4361.4664ms
+2019-09-20 15:03:03.262 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 123
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 15:03:03.324 +08:00 [ERR] Attempted to divide by zero.
+System.DivideByZeroException: Attempted to divide by zero.
+   at BlogDemo.Core.Entities.PaginatedList`1.get_PageCount() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 19
+   at BlogDemo.Core.Entities.PaginatedList`1.get_HasNext() in F:\工作\T11\BlogDemo\BlogDemo.Core\Entities\PaginatedList.cs:line 23
+   at BlogDemo.Api.Controllers.PostController.Get(PostParameters postParameters, String mediaType) in F:\工作\T11\BlogDemo\BlogDemo.Api\Controllers\PostController.cs:line 123
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-09-20 15:03:03.362 +08:00 [INF] Request finished in 4711.9991ms 500 application/json
+2019-09-20 15:03:07.463 +08:00 [INF] Request starting HTTP/1.1 PATCH https://localhost:5001/api/posts/3 application/json-patch+json 120
+2019-09-20 15:03:07.474 +08:00 [INF] Route matched with {action = "PartiallyUpdatePost", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PartiallyUpdatePost(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[BlogDemo.Infrastructure.Resources.PostUpdateResource]) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:03:07.596 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 15:03:07.600 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:03:07.627 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:03:07.630 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 15:03:14.251 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api), returned result BlogDemo.Api.Helpers.MyUnprocessableEntityObjectResult in 6651.9346000000005ms.
+2019-09-20 15:03:14.262 +08:00 [INF] Executing ObjectResult, writing value of type 'BlogDemo.Api.Helpers.ResourceValidationResult'.
+2019-09-20 15:03:14.277 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) in 6799.7469ms
+2019-09-20 15:03:14.280 +08:00 [INF] Request finished in 6817.8356ms 422 application/json; charset=utf-8
+2019-09-20 15:05:24.860 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts/3 application/vnd.cgzl.post.update+json 332
+2019-09-20 15:05:24.866 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:05:24.889 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 15:05:24.893 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:05:24.896 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:05:24.899 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 15:05:24.915 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 23.8667ms.
+2019-09-20 15:05:24.918 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Dynamic.ExpandoObject'.
+2019-09-20 15:05:24.926 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 58.2918ms
+2019-09-20 15:05:24.928 +08:00 [INF] Request finished in 67.4695ms 200 application/json; charset=utf-8
+2019-09-20 15:05:24.934 +08:00 [INF] Connection id "0HLPTJ289EKU0", Request id "0HLPTJ289EKU0:00000002": the application completed without reading the entire request body.
+2019-09-20 15:05:37.493 +08:00 [INF] Request starting HTTP/1.1 PATCH https://localhost:5001/api/posts/3 application/json-patch+json 120
+2019-09-20 15:05:37.498 +08:00 [INF] Route matched with {action = "PartiallyUpdatePost", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PartiallyUpdatePost(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[BlogDemo.Infrastructure.Resources.PostUpdateResource]) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:05:37.529 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 15:05:37.531 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:05:37.535 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:05:37.539 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 15:05:42.481 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api), returned result BlogDemo.Api.Helpers.MyUnprocessableEntityObjectResult in 4950.4509ms.
+2019-09-20 15:05:42.483 +08:00 [INF] Executing ObjectResult, writing value of type 'BlogDemo.Api.Helpers.ResourceValidationResult'.
+2019-09-20 15:05:42.485 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) in 4977.5011ms
+2019-09-20 15:05:42.492 +08:00 [INF] Request finished in 4998.6335ms 422 application/json; charset=utf-8
+2019-09-20 15:06:09.109 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts/3 application/vnd.cgzl.post.update+json 332
+2019-09-20 15:06:09.117 +08:00 [INF] Route matched with {action = "UpdatePost", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdatePost(Int32, BlogDemo.Infrastructure.Resources.PostUpdateResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:06:09.143 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.UpdatePost (BlogDemo.Api) - Validation state: "Invalid"
+2019-09-20 15:06:09.146 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.UpdatePost (BlogDemo.Api), returned result BlogDemo.Api.Helpers.MyUnprocessableEntityObjectResult in 2.1442ms.
+2019-09-20 15:06:09.154 +08:00 [INF] Executing ObjectResult, writing value of type 'BlogDemo.Api.Helpers.ResourceValidationResult'.
+2019-09-20 15:06:09.155 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.UpdatePost (BlogDemo.Api) in 33.379400000000004ms
+2019-09-20 15:06:09.160 +08:00 [INF] Request finished in 51.2313ms 422 application/json; charset=utf-8
+2019-09-20 15:06:24.795 +08:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/posts/3 application/vnd.cgzl.post.update+json 422
+2019-09-20 15:06:24.829 +08:00 [INF] Route matched with {action = "UpdatePost", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdatePost(Int32, BlogDemo.Infrastructure.Resources.PostUpdateResource) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:06:24.856 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.UpdatePost (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 15:06:24.859 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:06:24.862 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:06:24.867 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 15:06:24.901 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:06:24.943 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[@p3='?', @p0='?' (Size = 126), @p1='?', @p2='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Posts" SET "Body" = @p0, "LastModified" = @p1, "Title" = @p2
+WHERE "Id" = @p3;
+SELECT changes();
+2019-09-20 15:06:25.052 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.UpdatePost (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 192.57000000000002ms.
+2019-09-20 15:06:25.055 +08:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204
+2019-09-20 15:06:25.056 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.UpdatePost (BlogDemo.Api) in 224.0394ms
+2019-09-20 15:06:25.058 +08:00 [INF] Request finished in 262.8461ms 204 
+2019-09-20 15:06:32.300 +08:00 [INF] Request starting HTTP/1.1 PATCH https://localhost:5001/api/posts/3 application/json-patch+json 120
+2019-09-20 15:06:32.317 +08:00 [INF] Route matched with {action = "PartiallyUpdatePost", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PartiallyUpdatePost(Int32, Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[BlogDemo.Infrastructure.Resources.PostUpdateResource]) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:06:32.364 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 15:06:32.366 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:06:32.377 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:06:32.380 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 15:06:32.387 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:06:32.398 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@p5='?', @p0='?' (Size = 4), @p1='?' (Size = 126), @p2='?', @p3='?', @p4='?' (Size = 13)], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Posts" SET "Author" = @p0, "Body" = @p1, "LastModified" = @p2, "Remark" = @p3, "Title" = @p4
+WHERE "Id" = @p5;
+SELECT changes();
+2019-09-20 15:06:32.489 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 122.9128ms.
+2019-09-20 15:06:32.498 +08:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204
+2019-09-20 15:06:32.499 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.PartiallyUpdatePost (BlogDemo.Api) in 179.1643ms
+2019-09-20 15:06:32.500 +08:00 [INF] Request finished in 200.4877ms 204 
+2019-09-20 15:06:40.048 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts/3 application/vnd.cgzl.post.update+json 422
+2019-09-20 15:06:40.052 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32, System.String) on controller BlogDemo.Api.Controllers.PostController (BlogDemo.Api).
+2019-09-20 15:06:40.081 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-09-20 15:06:40.084 +08:00 [INF] Entity Framework Core 2.2.6-servicing-10079 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+2019-09-20 15:06:40.086 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+2019-09-20 15:06:40.088 +08:00 [INF] Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Author", "e"."Body", "e"."LastModified", "e"."Remark", "e"."Title"
+FROM "Posts" AS "e"
+WHERE "e"."Id" = @__get_Item_0
+LIMIT 1
+2019-09-20 15:06:40.091 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7.8102ms.
+2019-09-20 15:06:40.092 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Dynamic.ExpandoObject'.
+2019-09-20 15:06:40.093 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 38.2817ms
+2019-09-20 15:06:40.099 +08:00 [INF] Request finished in 50.809ms 200 application/json; charset=utf-8
+2019-09-20 15:06:40.102 +08:00 [INF] Connection id "0HLPTJ289EKU0", Request id "0HLPTJ289EKU0:00000007": the application completed without reading the entire request body.
