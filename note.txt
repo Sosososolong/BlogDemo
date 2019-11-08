@@ -1,4 +1,4 @@
-EFCore配置字段的约束
+EFCore配置字段的 约束
 	1.新建BlogDemo.Infrastructure.Database.EntityConfigurations.PostConfiguration.cs 文件并配置
 	   public class PostConfiguration : IEntityTypeConfiguration<Post>
 		{
