@@ -54,7 +54,7 @@ namespace BlogDemo.Api.Controllers
 
         [HttpGet(Name = "GetPosts")]
         public async Task<IActionResult> Get(PostParameters postParameters, [FromHeader(Name = "Accept")] string mediaType)
-        {
+        {            
             //验证排序属性
             if (!_propertyMappingContainer.ValidateMappingExistsFor<PostResource, Post>(postParameters.OrderBy))
             {
@@ -138,7 +138,8 @@ namespace BlogDemo.Api.Controllers
                     ContractResolver = new CamelCasePropertyNamesContractResolver()
                 }));
 
-                return Ok(postResources.ToDynamicIEnumerable(postParameters.Fields));
+                var responseData = postResources.ToDynamicIEnumerable(postParameters.Fields);
+                return Ok(responseData);
             }            
         }
         

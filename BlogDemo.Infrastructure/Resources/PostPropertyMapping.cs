@@ -22,6 +22,10 @@ namespace BlogDemo.Infrastructure.Resources
                 [nameof(PostResource.Author)] = new List<MappedProperty>
                 {
                     new MappedProperty{Name = nameof(Post.Author), Revert = false}
+                },
+                [nameof(PostResource.UpdateTime)] = new List<MappedProperty>
+                {
+                    new MappedProperty{Name = nameof(Post.LastModified), Revert = false}
                 }
             })
         {
